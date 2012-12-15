@@ -138,6 +138,19 @@
 		B8E64B41167C21EA009F57F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B40167C21EA009F57F1 /* AppDelegate.m */; };
 		B8E64B44167C21EA009F57F1 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B43167C21EA009F57F1 /* HelloWorldLayer.m */; };
 		B8E64B47167C21EA009F57F1 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B46167C21EA009F57F1 /* IntroLayer.m */; };
+		F5FED604167C279A005E96B6 /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FED603167C279A005E96B6 /* Map.m */; };
+		F5FED608167C27B7005E96B6 /* GameConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FED607167C27B7005E96B6 /* GameConfig.m */; };
+		F5FED61E167C386F005E96B6 /* CCBAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FED613167C386F005E96B6 /* CCBAnimationManager.m */; };
+		F5FED61F167C386F005E96B6 /* CCBKeyframe.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FED615167C386F005E96B6 /* CCBKeyframe.m */; };
+		F5FED620167C386F005E96B6 /* CCBReader.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FED617167C386F005E96B6 /* CCBReader.m */; };
+		F5FED621167C386F005E96B6 /* CCBsequence.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FED619167C386F005E96B6 /* CCBsequence.m */; };
+		F5FED622167C386F005E96B6 /* CCBSequenceProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FED61B167C386F005E96B6 /* CCBSequenceProperty.m */; };
+		F5FED623167C386F005E96B6 /* CCNode+CCBRelativePositioning.m in Sources */ = {isa = PBXBuildFile; fileRef = F5FED61D167C386F005E96B6 /* CCNode+CCBRelativePositioning.m */; };
+		F5FED62A167C3A0C005E96B6 /* levelBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FED626167C3A0C005E96B6 /* levelBtn.png */; };
+		F5FED62B167C3A0C005E96B6 /* levelBtnOn.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FED627167C3A0C005E96B6 /* levelBtnOn.png */; };
+		F5FED62C167C3A0C005E96B6 /* partBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FED628167C3A0C005E96B6 /* partBtn.png */; };
+		F5FED62D167C3A0C005E96B6 /* partBtnOn.png in Resources */ = {isa = PBXBuildFile; fileRef = F5FED629167C3A0C005E96B6 /* partBtnOn.png */; };
+		F5FED635167C442E005E96B6 /* Map.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = F5FED634167C442E005E96B6 /* Map.ccbi */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -413,6 +426,27 @@
 		B8E64B43167C21EA009F57F1 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		B8E64B45167C21EA009F57F1 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		B8E64B46167C21EA009F57F1 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		F5FED602167C279A005E96B6 /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		F5FED603167C279A005E96B6 /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
+		F5FED606167C27B7005E96B6 /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		F5FED607167C27B7005E96B6 /* GameConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameConfig.m; sourceTree = "<group>"; };
+		F5FED612167C386F005E96B6 /* CCBAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBAnimationManager.h; sourceTree = "<group>"; };
+		F5FED613167C386F005E96B6 /* CCBAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBAnimationManager.m; sourceTree = "<group>"; };
+		F5FED614167C386F005E96B6 /* CCBKeyframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBKeyframe.h; sourceTree = "<group>"; };
+		F5FED615167C386F005E96B6 /* CCBKeyframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBKeyframe.m; sourceTree = "<group>"; };
+		F5FED616167C386F005E96B6 /* CCBReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBReader.h; sourceTree = "<group>"; };
+		F5FED617167C386F005E96B6 /* CCBReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBReader.m; sourceTree = "<group>"; };
+		F5FED618167C386F005E96B6 /* CCBSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBSequence.h; sourceTree = "<group>"; };
+		F5FED619167C386F005E96B6 /* CCBsequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBsequence.m; sourceTree = "<group>"; };
+		F5FED61A167C386F005E96B6 /* CCBSequenceProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBSequenceProperty.h; sourceTree = "<group>"; };
+		F5FED61B167C386F005E96B6 /* CCBSequenceProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBSequenceProperty.m; sourceTree = "<group>"; };
+		F5FED61C167C386F005E96B6 /* CCNode+CCBRelativePositioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCNode+CCBRelativePositioning.h"; sourceTree = "<group>"; };
+		F5FED61D167C386F005E96B6 /* CCNode+CCBRelativePositioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CCNode+CCBRelativePositioning.m"; sourceTree = "<group>"; };
+		F5FED626167C3A0C005E96B6 /* levelBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelBtn.png; path = Resources/levelBtn.png; sourceTree = "<group>"; };
+		F5FED627167C3A0C005E96B6 /* levelBtnOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = levelBtnOn.png; path = Resources/levelBtnOn.png; sourceTree = "<group>"; };
+		F5FED628167C3A0C005E96B6 /* partBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = partBtn.png; path = Resources/partBtn.png; sourceTree = "<group>"; };
+		F5FED629167C3A0C005E96B6 /* partBtnOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = partBtnOn.png; path = Resources/partBtnOn.png; sourceTree = "<group>"; };
+		F5FED634167C442E005E96B6 /* Map.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; name = Map.ccbi; path = Resources/Map.ccbi; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,12 +505,17 @@
 		B8E649B8167C21E7009F57F1 /* old48Game */ = {
 			isa = PBXGroup;
 			children = (
+				F5FED611167C3853005E96B6 /* CCBREADER */,
 				B8E64B3F167C21EA009F57F1 /* AppDelegate.h */,
 				B8E64B40167C21EA009F57F1 /* AppDelegate.m */,
 				B8E64B42167C21EA009F57F1 /* HelloWorldLayer.h */,
 				B8E64B43167C21EA009F57F1 /* HelloWorldLayer.m */,
 				B8E64B45167C21EA009F57F1 /* IntroLayer.h */,
 				B8E64B46167C21EA009F57F1 /* IntroLayer.m */,
+				F5FED602167C279A005E96B6 /* Map.h */,
+				F5FED603167C279A005E96B6 /* Map.m */,
+				F5FED606167C27B7005E96B6 /* GameConfig.h */,
+				F5FED607167C27B7005E96B6 /* GameConfig.m */,
 				B8E649B9167C21E7009F57F1 /* Resources */,
 				B8E649D7167C21E7009F57F1 /* libs */,
 				B8E64B3B167C21EA009F57F1 /* Supporting Files */,
@@ -487,6 +526,11 @@
 		B8E649B9167C21E7009F57F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F5FED634167C442E005E96B6 /* Map.ccbi */,
+				F5FED626167C3A0C005E96B6 /* levelBtn.png */,
+				F5FED627167C3A0C005E96B6 /* levelBtnOn.png */,
+				F5FED628167C3A0C005E96B6 /* partBtn.png */,
+				F5FED629167C3A0C005E96B6 /* partBtnOn.png */,
 				B8E649BA167C21E7009F57F1 /* Default.png */,
 				B8E649BC167C21E7009F57F1 /* Default@2x.png */,
 				B8E649BE167C21E7009F57F1 /* Default-568h@2x.png */,
@@ -857,6 +901,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F5FED611167C3853005E96B6 /* CCBREADER */ = {
+			isa = PBXGroup;
+			children = (
+				F5FED612167C386F005E96B6 /* CCBAnimationManager.h */,
+				F5FED613167C386F005E96B6 /* CCBAnimationManager.m */,
+				F5FED614167C386F005E96B6 /* CCBKeyframe.h */,
+				F5FED615167C386F005E96B6 /* CCBKeyframe.m */,
+				F5FED616167C386F005E96B6 /* CCBReader.h */,
+				F5FED617167C386F005E96B6 /* CCBReader.m */,
+				F5FED618167C386F005E96B6 /* CCBSequence.h */,
+				F5FED619167C386F005E96B6 /* CCBsequence.m */,
+				F5FED61A167C386F005E96B6 /* CCBSequenceProperty.h */,
+				F5FED61B167C386F005E96B6 /* CCBSequenceProperty.m */,
+				F5FED61C167C386F005E96B6 /* CCNode+CCBRelativePositioning.h */,
+				F5FED61D167C386F005E96B6 /* CCNode+CCBRelativePositioning.m */,
+			);
+			name = CCBREADER;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -923,6 +986,11 @@
 				B8E649D3167C21E7009F57F1 /* Icon@2x.png in Resources */,
 				B8E649D6167C21E7009F57F1 /* iTunesArtwork in Resources */,
 				B8E64B1F167C21EA009F57F1 /* ChangeLog in Resources */,
+				F5FED62A167C3A0C005E96B6 /* levelBtn.png in Resources */,
+				F5FED62B167C3A0C005E96B6 /* levelBtnOn.png in Resources */,
+				F5FED62C167C3A0C005E96B6 /* partBtn.png in Resources */,
+				F5FED62D167C3A0C005E96B6 /* partBtnOn.png in Resources */,
+				F5FED635167C442E005E96B6 /* Map.ccbi in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1040,6 +1108,14 @@
 				B8E64B41167C21EA009F57F1 /* AppDelegate.m in Sources */,
 				B8E64B44167C21EA009F57F1 /* HelloWorldLayer.m in Sources */,
 				B8E64B47167C21EA009F57F1 /* IntroLayer.m in Sources */,
+				F5FED604167C279A005E96B6 /* Map.m in Sources */,
+				F5FED608167C27B7005E96B6 /* GameConfig.m in Sources */,
+				F5FED61E167C386F005E96B6 /* CCBAnimationManager.m in Sources */,
+				F5FED61F167C386F005E96B6 /* CCBKeyframe.m in Sources */,
+				F5FED620167C386F005E96B6 /* CCBReader.m in Sources */,
+				F5FED621167C386F005E96B6 /* CCBsequence.m in Sources */,
+				F5FED622167C386F005E96B6 /* CCBSequenceProperty.m in Sources */,
+				F5FED623167C386F005E96B6 /* CCNode+CCBRelativePositioning.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1143,6 +1219,7 @@
 				B8E64B4C167C21EA009F57F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

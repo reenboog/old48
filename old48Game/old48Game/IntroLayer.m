@@ -10,7 +10,8 @@
 // Import the interfaces
 #import "IntroLayer.h"
 #import "HelloWorldLayer.h"
-
+#import "Map.h"
+#import "CCBReader.h"
 
 #pragma mark - IntroLayer
 
@@ -61,6 +62,9 @@
 -(void) onEnter
 {
 	[super onEnter];
-	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene:[HelloWorldLayer scene] ]];
+	
+    CCScene* mainScene = [CCBReader sceneWithNodeGraphFromFile: @"Map.ccbi"];
+    
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:1.0 scene: mainScene]];
 }
 @end
