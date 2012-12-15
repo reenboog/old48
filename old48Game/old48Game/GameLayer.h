@@ -4,6 +4,7 @@
 
 @class Player;
 @class Chaser;
+@class Level;
 
 @interface GameLayer: CCLayer <GameDelegate>
 {
@@ -12,6 +13,11 @@
     
     UISwipeGestureRecognizer *swipeUpRecognizer;
     UISwipeGestureRecognizer *swipeDownRecognizer;
+    
+    Level *currentLevel;
+    
+    //obstacles and others
+    NSMutableArray *objects;
 }
 
 - (void) loadPlayer;
@@ -19,8 +25,13 @@
 
 //- (void) apply;
 
-+ (id) scene;
++ (id) sceneWithLevelIndex: (NSInteger) levelIndex;
 
-- (void) start;
+- (id) initWithLevelIndex: (NSInteger) levelIndex;
+
+- (void) loadLevel: (NSInteger) levelIndex;
+- (CCNode *) nodeForId: (NSInteger) Id andData: (NSDictionary *) data;
+//- (void)
+- (void) reset;
 
 @end

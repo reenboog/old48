@@ -1,6 +1,8 @@
 
 #import "Player.h"
 #import "GameConfig.h"
+#import "CCBReader.h"
+#import "CCBAnimationManager.h"
 
 @interface Player ()
 
@@ -23,7 +25,7 @@
         
     }
     
-    body = [CCSprite spriteWithFile: @"res/player0.png"];
+    body = [CCBReader nodeGraphFromFile: @"hero.ccbi"];
     body.position = ccp(0, 0);
     
     self.contentSize = [body boundingBox].size;
@@ -33,6 +35,8 @@
     self.gameDelegate = delegate;
     
     state = PS_Undefined;
+    
+    [self run];
     
     return self;
 }
@@ -53,6 +57,12 @@
     state = PS_Jumping;
 
     positionBeforeAction = self.position;
+    
+    CCBAnimationManager *animationManager = body.userObject;
+    
+    [animationManager runAnimationsForSequenceNamed: @"jump"
+                                      tweenDuration: 0.1
+    ];
     
     [self runAction:
                     [CCSequence actions:
@@ -85,6 +95,12 @@
     state = PS_Dodging;
     
     positionBeforeAction = self.position;
+    
+    CCBAnimationManager *animationManager = body.userObject;
+    
+    [animationManager runAnimationsForSequenceNamed: @"dodge"
+                                      tweenDuration: 0.1
+    ];
     
     [self runAction:
                     [CCSequence actions:
@@ -125,6 +141,12 @@
         [self stopAllActions];
 
         state = PS_Tumbling;
+        
+        CCBAnimationManager *animationManager = body.userObject;
+    
+        [animationManager runAnimationsForSequenceNamed: @"tumble"
+                                          tweenDuration: 0.1
+        ];
 
         [self runAction:
                         [CCSequence actions:
@@ -158,6 +180,11 @@
 
 - (void) run
 {
+    CCBAnimationManager *animationManager = body.userObject;
+    
+    [animationManager runAnimationsForSequenceNamed: @"run"
+                                      tweenDuration: 0.1
+    ];
     
     state = PS_Running;
 }

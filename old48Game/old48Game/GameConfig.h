@@ -1,5 +1,6 @@
 
 #define zPlayer 5
+#define zObstacle 4
 #define zChaser 5
 
 #define kScreenWidth    1024
@@ -10,9 +11,11 @@
 #define kChaserPos ccp(100, 100)
 
 #define kPlayerTag 8136
+#define kPlayerSpeed -300
 
 //settings stuff
 #define kTumblingAllowed @"isTumblingAllowed"
+#define kLevelPrefix @"res/levels/level"
 
 //logic
 #define kPlayerJumpHeight 100
@@ -21,5 +24,12 @@
 #define kPlayerTumbleHeight 250
 #define kPlayerTumbleTime 0.4
 
-#define kPlayerDodgeDelta ccp(0, -20)
-#define kPlayerDodgeTime 0.3
+#define kPlayerDodgeDelta ccp(0, -80)
+#define kPlayerDodgeTime 1.0
+
+//pause menu
+#define kPauseMenuPos ccp(980, 750)
+
+//gestures
+#define kLeftGestureArea CGRectMake(0, 0, 150, 768)
+#define kRightGestureArea CGRectMake(874, 0, 150, 768)

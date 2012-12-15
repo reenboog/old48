@@ -15,7 +15,7 @@ typedef enum
 {
     PlayerState state;
     
-    CCSprite *body;
+    CCNode *body;
     
     id<GameDelegate> gameDelegate;
     

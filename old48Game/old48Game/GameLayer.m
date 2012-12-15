@@ -3,23 +3,33 @@
 #import "Player.h"
 #import "Chaser.h"
 
+#import "UILayer.h"
+
+#import "Level.h"
+
 #import "GameConfig.h"
 
 @interface GameLayer ()
 
 - (void) initGestures;
+- (void) cleanup;
 
 @end
 
 @implementation GameLayer
 
-+ (id) scene
++ (id) sceneWithLevelIndex: (NSInteger) levelIndex
 {
     CCScene *scene = [CCScene node];
     
-    GameLayer *gameLayer = [GameLayer node];
+    GameLayer *gameLayer = [[[GameLayer alloc] initWithLevelIndex: levelIndex] autorelease];
     
     [scene addChild: gameLayer];
+    
+    UILayer *uiLayer = [UILayer node];
+    uiLayer.gameDelegate = gameLayer;
+    
+    [scene addChild: uiLayer];
     
     return scene;
 }
@@ -29,31 +39,111 @@
     [chaser dealloc];
     [player dealloc];
     
+    [currentLevel release];
+    
+    [objects release];
+    
     [swipeDownRecognizer release];
     [swipeDownRecognizer release];
     
     [super dealloc];
 }
 
-- (id) init
+- (id) initWithLevelIndex: (NSInteger) levelIndex
 {
     if((self = [super init]))
     {
         self.isTouchEnabled = YES;
+        
+        objects = [[NSMutableArray alloc] init];
         
         [self loadPlayer];
         
         [self loadChaser];
         
         [self initGestures];
+
+        [self loadLevel: levelIndex];
         
-        [self start];
+        //[self start];
         
+        [self scheduleUpdate];
     }
     
     return self;
 }
 
+- (void) cleanup
+{
+    for(CCNode *object in objects)
+    {
+        [self removeChild: object cleanup: YES];
+    }
+    
+    [objects removeAllObjects];
+}
+
+- (void) loadLevel: (NSInteger) levelIndex
+{
+    [currentLevel release];
+
+    currentLevel = [[Level alloc] initWithIndex: levelIndex];
+    
+    [self reset];
+}
+
+- (void) reset
+{
+    [self cleanup];
+    
+    //parse levels
+    
+    NSArray *data = currentLevel.objects;
+    
+    for(NSDictionary *object in data)
+    {
+        NSInteger Id = [[object objectForKey: @"id"] intValue];
+        
+        CCNode *node = [self nodeForId: Id andData: object];
+        if(node)
+        {
+            [self addChild: node z: zObstacle];
+        
+            [objects addObject: node];
+        }
+    }
+}
+
+- (CCNode *) nodeForId: (NSInteger) Id andData: (NSDictionary *) data
+{
+    CCNode *node = nil;
+    NSString *posStr = [data objectForKey: @"position"];
+    NSArray *posAr = [posStr componentsSeparatedByString: @","];
+    CGPoint pos = ccp([[posAr objectAtIndex: 0] intValue], [[posAr objectAtIndex: 1] intValue]);
+    
+    switch(Id)
+    {
+        case Obj_Coin:
+            
+            break;
+            
+        case Obj_ObstacleMayaBox:
+            node = [CCSprite spriteWithFile: @"res/star.png"];
+            
+            node.position = pos;
+            node.tag = Id;
+            
+            CCLOG(@"pbject's pos: %f, %f", node.position.x, node.position.y);
+            break;
+            
+        default:
+            break;
+    }
+    
+    return node;
+}
+
+//- (void) reset
 
 - (void) loadPlayer
 {
@@ -76,9 +166,32 @@
 
 #pragma mark - Game logic
 
-- (void) start
+- (void) update: (ccTime) delta
 {
-    [player run];
+    for(CCNode *node in objects)
+    {
+        //move objects
+        node.position = ccpAdd(node.position, ccp(kPlayerSpeed * delta, 0));
+    }
+    
+    for(CCNode *node in objects)
+    {
+        //check colisions
+        if(CGRectContainsPoint([node boundingBox], player.position))
+        {
+            switch(node.tag)
+            {
+                case Obj_Coin:
+                    CCLOG(@"+1 point");
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
+    }
+    
+    
 }
 
 #pragma mark - Gestures
@@ -103,7 +216,13 @@
 
 - (void) swipeUp: (UIGestureRecognizer *) gestureRecognizer
 {
-    [player jump];
+    CGPoint gesturePt = [gestureRecognizer locationInView: gestureRecognizer.view];
+    gesturePt = [[CCDirector sharedDirector] convertToGL: gesturePt];
+
+    if(CGRectContainsPoint(kLeftGestureArea, gesturePt) || CGRectContainsPoint(kRightGestureArea, gesturePt))
+    {
+        [player jump];
+    }
 }
 
 - (void) swipeDown: (UIGestureRecognizer *) gestureRecognizer
