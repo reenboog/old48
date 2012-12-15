@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B87B1D0A167C45A100821F9A /* Settings.m in Sources */ = {isa = PBXBuildFile; fileRef = B87B1D09167C45A100821F9A /* Settings.m */; };
 		B8E649A7167C21E7009F57F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E649A6167C21E7009F57F1 /* QuartzCore.framework */; };
 		B8E649A9167C21E7009F57F1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E649A8167C21E7009F57F1 /* OpenGLES.framework */; };
 		B8E649AB167C21E7009F57F1 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E649AA167C21E7009F57F1 /* OpenAL.framework */; };
@@ -136,11 +137,17 @@
 		B8E64B39167C21EA009F57F1 /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B38167C21EA009F57F1 /* vec4.c */; };
 		B8E64B3E167C21EA009F57F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B3D167C21EA009F57F1 /* main.m */; };
 		B8E64B41167C21EA009F57F1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B40167C21EA009F57F1 /* AppDelegate.m */; };
-		B8E64B44167C21EA009F57F1 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B43167C21EA009F57F1 /* HelloWorldLayer.m */; };
-		B8E64B47167C21EA009F57F1 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B46167C21EA009F57F1 /* IntroLayer.m */; };
+		B8E64B4F167C268A009F57F1 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B4E167C268A009F57F1 /* GameLayer.m */; };
+		B8E64B52167C276A009F57F1 /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B51167C276A009F57F1 /* Player.m */; };
+		B8E64B55167C27B4009F57F1 /* res in Resources */ = {isa = PBXBuildFile; fileRef = B8E64B54167C27B4009F57F1 /* res */; };
+		B8E64B58167C29B0009F57F1 /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B57167C29B0009F57F1 /* Common.m */; };
+		B8E64B5C167C2B32009F57F1 /* GameConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B5B167C2B32009F57F1 /* GameConfig.m */; };
+		B8E64B5F167C2C2E009F57F1 /* Chaser.m in Sources */ = {isa = PBXBuildFile; fileRef = B8E64B5E167C2C2D009F57F1 /* Chaser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B87B1D08167C45A100821F9A /* Settings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Settings.h; sourceTree = "<group>"; };
+		B87B1D09167C45A100821F9A /* Settings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings.m; sourceTree = "<group>"; };
 		B8E649A2167C21E7009F57F1 /* old48Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = old48Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E649A6167C21E7009F57F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B8E649A8167C21E7009F57F1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -409,10 +416,17 @@
 		B8E64B3D167C21EA009F57F1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B8E64B3F167C21EA009F57F1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B8E64B40167C21EA009F57F1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B8E64B42167C21EA009F57F1 /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		B8E64B43167C21EA009F57F1 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
-		B8E64B45167C21EA009F57F1 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		B8E64B46167C21EA009F57F1 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		B8E64B4D167C268A009F57F1 /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		B8E64B4E167C268A009F57F1 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		B8E64B50167C276A009F57F1 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		B8E64B51167C276A009F57F1 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		B8E64B54167C27B4009F57F1 /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
+		B8E64B56167C29B0009F57F1 /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		B8E64B57167C29B0009F57F1 /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
+		B8E64B5A167C2B32009F57F1 /* GameConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
+		B8E64B5B167C2B32009F57F1 /* GameConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameConfig.m; sourceTree = "<group>"; };
+		B8E64B5D167C2C2D009F57F1 /* Chaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chaser.h; sourceTree = "<group>"; };
+		B8E64B5E167C2C2D009F57F1 /* Chaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Chaser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -471,12 +485,13 @@
 		B8E649B8167C21E7009F57F1 /* old48Game */ = {
 			isa = PBXGroup;
 			children = (
+				B87B1D08167C45A100821F9A /* Settings.h */,
+				B87B1D09167C45A100821F9A /* Settings.m */,
+				B8E64B59167C2AF9009F57F1 /* Game */,
 				B8E64B3F167C21EA009F57F1 /* AppDelegate.h */,
 				B8E64B40167C21EA009F57F1 /* AppDelegate.m */,
-				B8E64B42167C21EA009F57F1 /* HelloWorldLayer.h */,
-				B8E64B43167C21EA009F57F1 /* HelloWorldLayer.m */,
-				B8E64B45167C21EA009F57F1 /* IntroLayer.h */,
-				B8E64B46167C21EA009F57F1 /* IntroLayer.m */,
+				B8E64B56167C29B0009F57F1 /* Common.h */,
+				B8E64B57167C29B0009F57F1 /* Common.m */,
 				B8E649B9167C21E7009F57F1 /* Resources */,
 				B8E649D7167C21E7009F57F1 /* libs */,
 				B8E64B3B167C21EA009F57F1 /* Supporting Files */,
@@ -487,21 +502,9 @@
 		B8E649B9167C21E7009F57F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B8E649BA167C21E7009F57F1 /* Default.png */,
-				B8E649BC167C21E7009F57F1 /* Default@2x.png */,
-				B8E649BE167C21E7009F57F1 /* Default-568h@2x.png */,
-				B8E649C0167C21E7009F57F1 /* Default-Landscape~ipad.png */,
-				B8E649C2167C21E7009F57F1 /* fps_images.png */,
-				B8E649C4167C21E7009F57F1 /* fps_images-hd.png */,
-				B8E649C6167C21E7009F57F1 /* fps_images-ipadhd.png */,
-				B8E649C8167C21E7009F57F1 /* Icon-72.png */,
-				B8E649CA167C21E7009F57F1 /* Icon-Small-50.png */,
-				B8E649CC167C21E7009F57F1 /* Icon-Small.png */,
-				B8E649CE167C21E7009F57F1 /* Icon-Small@2x.png */,
-				B8E649D0167C21E7009F57F1 /* Icon.png */,
-				B8E649D2167C21E7009F57F1 /* Icon@2x.png */,
+				B8E64B54167C27B4009F57F1 /* res */,
+				B8E64B53167C278D009F57F1 /* Stuff */,
 				B8E649D4167C21E7009F57F1 /* Info.plist */,
-				B8E649D5167C21E7009F57F1 /* iTunesArtwork */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -857,6 +860,42 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B8E64B53167C278D009F57F1 /* Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				B8E649D5167C21E7009F57F1 /* iTunesArtwork */,
+				B8E649BA167C21E7009F57F1 /* Default.png */,
+				B8E649BC167C21E7009F57F1 /* Default@2x.png */,
+				B8E649BE167C21E7009F57F1 /* Default-568h@2x.png */,
+				B8E649C0167C21E7009F57F1 /* Default-Landscape~ipad.png */,
+				B8E649C2167C21E7009F57F1 /* fps_images.png */,
+				B8E649C4167C21E7009F57F1 /* fps_images-hd.png */,
+				B8E649C6167C21E7009F57F1 /* fps_images-ipadhd.png */,
+				B8E649C8167C21E7009F57F1 /* Icon-72.png */,
+				B8E649CA167C21E7009F57F1 /* Icon-Small-50.png */,
+				B8E649CC167C21E7009F57F1 /* Icon-Small.png */,
+				B8E649CE167C21E7009F57F1 /* Icon-Small@2x.png */,
+				B8E649D0167C21E7009F57F1 /* Icon.png */,
+				B8E649D2167C21E7009F57F1 /* Icon@2x.png */,
+			);
+			name = Stuff;
+			sourceTree = "<group>";
+		};
+		B8E64B59167C2AF9009F57F1 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				B8E64B4D167C268A009F57F1 /* GameLayer.h */,
+				B8E64B4E167C268A009F57F1 /* GameLayer.m */,
+				B8E64B5A167C2B32009F57F1 /* GameConfig.h */,
+				B8E64B5B167C2B32009F57F1 /* GameConfig.m */,
+				B8E64B50167C276A009F57F1 /* Player.h */,
+				B8E64B51167C276A009F57F1 /* Player.m */,
+				B8E64B5D167C2C2D009F57F1 /* Chaser.h */,
+				B8E64B5E167C2C2D009F57F1 /* Chaser.m */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -923,6 +962,7 @@
 				B8E649D3167C21E7009F57F1 /* Icon@2x.png in Resources */,
 				B8E649D6167C21E7009F57F1 /* iTunesArtwork in Resources */,
 				B8E64B1F167C21EA009F57F1 /* ChangeLog in Resources */,
+				B8E64B55167C27B4009F57F1 /* res in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1038,8 +1078,12 @@
 				B8E64B39167C21EA009F57F1 /* vec4.c in Sources */,
 				B8E64B3E167C21EA009F57F1 /* main.m in Sources */,
 				B8E64B41167C21EA009F57F1 /* AppDelegate.m in Sources */,
-				B8E64B44167C21EA009F57F1 /* HelloWorldLayer.m in Sources */,
-				B8E64B47167C21EA009F57F1 /* IntroLayer.m in Sources */,
+				B8E64B4F167C268A009F57F1 /* GameLayer.m in Sources */,
+				B8E64B52167C276A009F57F1 /* Player.m in Sources */,
+				B8E64B58167C29B0009F57F1 /* Common.m in Sources */,
+				B8E64B5C167C2B32009F57F1 /* GameConfig.m in Sources */,
+				B8E64B5F167C2C2E009F57F1 /* Chaser.m in Sources */,
+				B87B1D0A167C45A100821F9A /* Settings.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1090,17 +1134,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jeffrey McLeod (ZKHCZ235BN)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jeffrey McLeod (ZKHCZ235BN)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = old48Game/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"old48Game/libs/kazmath/include\"";
 				INFOPLIST_FILE = old48Game/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "CA40CE49-BADC-4DA0-83DC-0EC466AD945F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CA40CE49-BADC-4DA0-83DC-0EC466AD945F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1109,16 +1158,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jeffrey McLeod (ZKHCZ235BN)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = old48Game/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"old48Game/libs/kazmath/include\"";
 				INFOPLIST_FILE = old48Game/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "CA40CE49-BADC-4DA0-83DC-0EC466AD945F";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1143,6 +1195,7 @@
 				B8E64B4C167C21EA009F57F1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

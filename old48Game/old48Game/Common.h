@@ -1,0 +1,6 @@
+
+@protocol GameDelegate
+
+
+
+@end

@@ -9,7 +9,8 @@
 #import "cocos2d.h"
 
 #import "AppDelegate.h"
-#import "IntroLayer.h"
+#import "GameLayer.h"
+#import "Settings.h"
 
 @implementation AppController
 
@@ -17,6 +18,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[Settings sharedSettings] load];
 	// Create the main window
 	window_ = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
@@ -93,7 +95,7 @@
 	if(director.runningScene == nil) {
 		// Add the first scene to the stack. The director will draw it immediately into the framebuffer. (Animation is started automatically when the view is displayed.)
 		// and add the scene to the stack. The director will run it when it automatically when the view is displayed.
-		[director runWithScene: [IntroLayer scene]];
+		[director runWithScene: [GameLayer scene]];
 	}
 }
 
@@ -133,6 +135,8 @@
 // application will be killed
 - (void)applicationWillTerminate:(UIApplication *)application
 {
+    [[Settings sharedSettings] release];
+    
 	CC_DIRECTOR_END();
 }
 
