@@ -3,6 +3,8 @@
 #import "Player.h"
 #import "Chaser.h"
 
+#import "SimpleAudioEngine.h"
+
 #import "CCBReader.h"
 #import "CCBAnimationManager.h"
 
@@ -59,9 +61,13 @@
         //preload some common animations and plists
         
         [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: @"energy.plist"];
-
         [Common loadAnimationWithPlist: @"animations" andName: @"energy"];
         
+        starsBatch = [CCSpriteBatchNode batchNodeWithFile: @"energy.png"];
+        starsBatch.position = ccp(0, 0);
+        
+        [self addChild: starsBatch z: zObstacle];
+                
         self.isTouchEnabled = YES;
         
         objects = [[NSMutableArray alloc] init];
@@ -88,6 +94,9 @@
     {
         [self removeChild: object cleanup: YES];
     }
+    
+    [starsBatch removeAllChildrenWithCleanup: YES];
+    [boxBatch removeAllChildrenWithCleanup: YES];
     
     [objects removeAllObjects];
 }
@@ -132,6 +141,14 @@
         
         [sky.texture setTexParameters: &ts];
         [backLayers addChild: sky z: zSky];
+        
+        //box batch
+        boxBatch = [CCSpriteBatchNode batchNodeWithFile: currentLevel.boxImage];
+        boxBatch.position = ccp(0, 0);
+        
+        [self addChild: boxBatch z: zObstacle];
+        
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic: currentLevel.backSound loop: YES];
     }
     
     [self reset];
@@ -152,7 +169,20 @@
         CCNode *node = [self nodeForId: Id andData: object];
         if(node)
         {
-            [self addChild: node z: zObstacle];
+            if(Id == Obj_Coin)
+            {
+                [starsBatch addChild: node];
+                
+                //CCLOG(@"star pos: %f %f", node.position.x, node.position.y);
+            }
+            else if(Id == Obj_ObstacleMayaBox)
+            {
+                [boxBatch addChild: node];
+            }
+            else
+            {
+                [self addChild: node z: zObstacle];
+            }
         
             [objects addObject: node];
         }
@@ -174,6 +204,8 @@
     switch(Id)
     {
         case Obj_Coin:
+            CCLOG(@"coin created");
+            
             node = [CCSprite spriteWithSpriteFrameName: @"energy0.png"];
             node.position = pos;
             node.tag = Id;
@@ -207,6 +239,7 @@
             node = [CCBReader nodeGraphFromFile: @"crow.ccbi"];
             node.position = pos;
             node.tag = Id;
+            node.visible = NO;
             
             node.contentSize = kRavenSize;
             CCBAnimationManager *mngr = node.userObject;
@@ -217,6 +250,8 @@
         default:
             break;
     }
+    
+    node.visible = YES;
     
     return node;
 }
@@ -243,6 +278,25 @@
 }
 
 #pragma mark - Game logic
+
+- (void) onCollide
+{
+    if(player.collided == NO)
+    {
+        [player onCollide];
+        
+        [chaser onCollide];
+    }
+    else
+    {
+        //game over
+    }
+}
+
+- (void) clearCollision
+{
+    [chaser clearCollision];
+}
 
 - (void) update: (ccTime) delta
 {
@@ -311,13 +365,26 @@
     [sky setTextureRect: textureRect];
 
     
-    //
+    //visible optimizations
     for(CCNode *node in objects)
     {
         //move objects
         node.position = ccpAdd(node.position, ccp(-kPlayerSpeed * delta, 0));
+        
+        //if(node.tag == Obj_ObstacleCrow || node.tag == )
+        {
+            if(node.visible == NO && node.position.x >= 1100 && node.position.x <= 1200)
+            {
+                node.visible = YES;
+            }
+            else if(node.visible == YES && node.position.x <= -100)
+            {
+                node.visible = NO;
+            }
+        }
     }
     
+    //collisions
     for(CCNode *node in objects)
     {
         //check colisions
@@ -333,9 +400,20 @@
                     break;
             }
         }
+        
+        if(ccpDistance(player.position, node.position) < 50)
+        {
+            switch(node.tag)
+            {
+                case Obj_ObstacleMayaBox:
+                    [self onCollide];
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
     }
-    
-    
 }
 
 #pragma mark - Gestures

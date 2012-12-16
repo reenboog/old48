@@ -17,6 +17,9 @@
     CCSprite *back;
     CCSprite *sky;
     
+    CCSpriteBatchNode *starsBatch;
+    CCSpriteBatchNode *boxBatch;
+    
     UISwipeGestureRecognizer *swipeUpRecognizer;
     UISwipeGestureRecognizer *swipeDownRecognizer;
     
@@ -39,5 +42,7 @@
 - (CCNode *) nodeForId: (NSInteger) Id andData: (NSDictionary *) data;
 //- (void)
 - (void) reset;
+- (void) onCollide;
+- (void) clearCollision;
 
 @end

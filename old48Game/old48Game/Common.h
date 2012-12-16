@@ -13,6 +13,8 @@ typedef enum
 
 @protocol GameDelegate
 
+- (void) onCollide;
+- (void) clearCollision;
 
 @end
 

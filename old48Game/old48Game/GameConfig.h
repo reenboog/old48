@@ -1,6 +1,6 @@
 
 #define zPlayer 5
-#define zObstacle 4
+#define zObstacle 5
 #define zChaser 5
 
 #define zBackLayers 4
@@ -18,6 +18,9 @@
 #define kPlayerPos ccp(kScreenWidth / 2, 155)
 #define kChaserPos ccp(30, 180)
 
+#define kPlayerCollidedPosition ccp(kScreenWidth / 2 - 150,  155)
+#define kChaserCollidedPosition ccp(100, 180)
+
 #define kPlayerTag 8136
 #define kPlayerSpeed 235
 
@@ -26,7 +29,7 @@
 #define kLevelPrefix @"res/levels/level"
 
 //logic
-#define kPlayerJumpHeight 100
+#define kPlayerJumpHeight 200
 #define kPlayerJumpTime 0.5
 
 #define kPlayerTumbleHeight 310

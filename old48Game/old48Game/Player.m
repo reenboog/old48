@@ -3,6 +3,7 @@
 #import "GameConfig.h"
 #import "CCBReader.h"
 #import "CCBAnimationManager.h"
+#import "SimpleAudioEngine.h"
 
 @interface Player ()
 
@@ -14,8 +15,12 @@
 @synthesize state;
 @synthesize body;
 
+@synthesize collided;
+
 - (void) dealloc
 {
+    [runningSound release];
+    
     [super dealloc];
 }
 
@@ -29,7 +34,7 @@
     body = [CCBReader nodeGraphFromFile: @"hero.ccbi"];
     body.position = ccp(0, 0);
     
-    self.contentSize = [body boundingBox].size;
+    self.contentSize = CGSizeMake(128, 128);
     
     [self addChild: body];
     
@@ -37,9 +42,24 @@
     
     state = PS_Undefined;
     
+    [self scheduleUpdate];
+    
+    collisionState = PCS_Clean;
+    
     [self run];
     
     return self;
+}
+
+ - (void) update: (ccTime) dt
+{
+    if(collisionState == PCS_Collided)
+    {
+        CGPoint pos = self.position;
+        pos.x -= dt * 200;
+        
+        self.position = pos;
+    }
 }
 
 #pragma mark - Action logic
@@ -82,6 +102,13 @@
                                         nil
                     ]
     ];
+    
+    [runningSound stop];
+    [runningSound release];
+    
+    runningSound = nil;
+    
+    [[SimpleAudioEngine sharedEngine] playEffect: @"jump.mp3"];
 }
 
 - (void) dodge
@@ -122,6 +149,13 @@
                                         nil
                     ]
     ];
+    
+    [runningSound stop];
+    [runningSound release];
+    
+    runningSound = nil;
+    
+    [[SimpleAudioEngine sharedEngine] playEffect: @"slide.mp3"];
 }
 
 - (void) tumble;
@@ -173,6 +207,13 @@
                                             nil
                         ]
         ];
+        
+        [runningSound stop];
+        [runningSound release];
+        
+        runningSound = nil;
+        
+        [[SimpleAudioEngine sharedEngine] playEffect: @"tumble.mp3"];
     }
     else
     {
@@ -188,6 +229,18 @@
                                       tweenDuration: 0.1
     ];
     
+    [runningSound stop];
+    [runningSound release];
+    
+    runningSound = nil;
+    runningSound = [[SimpleAudioEngine sharedEngine] soundSourceForFile: @"run.mp3"];
+    
+    runningSound.looping = YES;
+    [runningSound play];
+    [runningSound retain];
+    
+    //[[SimpleAudioEngine sharedEngine] playEffect: ];
+    
 //    [self runAction:
 //                    [CCRepeatForever actionWithAction:
 //                                                    [CCSequence actions:
@@ -201,6 +254,25 @@
 //    ];
     
     state = PS_Running;
+}
+
+- (void) onCollide
+{
+    collided = YES;
+
+    [self schedule: @selector(clearCollision) interval: 2];
+    
+    [self runAction:
+                    [CCBlink actionWithDuration: 0.7 blinks: 3]
+    ];
+}
+
+- (void) clearCollision
+{
+    [self unschedule: _cmd];
+    [gameDelegate clearCollision];
+    
+    collided = NO;
 }
 
 @end

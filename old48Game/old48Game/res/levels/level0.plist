@@ -1097,11 +1097,15 @@
 			<string>5993,99</string>
 		</dict>
 	</array>
+	<key>backSound</key>
+	<string>mayaBack.mp3</string>
 	<key>backImage</key>
 	<string>res/levels/mayaBack.png</string>
 	<key>groundImage</key>
 	<string>res/levels/mayaGround.png</string>
 	<key>skyImage</key>
 	<string>res/levels/mayaSky.png</string>
+	<key>boxImage</key>
+	<string>mayaBox.png</string>
 </dict>
 </plist>

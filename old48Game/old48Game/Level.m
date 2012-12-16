@@ -12,12 +12,17 @@
 @synthesize backImage;
 @synthesize skyImage;
 @synthesize objects;
+@synthesize backSound;
+
+@synthesize boxImage;
 
 - (void) dealloc
 {
     self.groundImage = nil;
     self.backImage = nil;
     self.skyImage = nil;
+    self.backSound = nil;
+    self.boxImage = nil;
 
     [objects release];
     objects = nil;
@@ -42,6 +47,8 @@
         self.groundImage = [fileData objectForKey: @"groundImage"];
         self.skyImage = [fileData objectForKey: @"skyImage"];
         self.backImage = [fileData objectForKey: @"backImage"];
+        self.backSound = [fileData objectForKey: @"backSound"];
+        self.boxImage = [fileData objectForKey: @"boxImage"];
     }
     
     return self;

@@ -13,4 +13,7 @@
 
 - (id) initWithGameDelegate: (id<GameDelegate>) delegate;
 
+- (void) onCollide;
+- (void) clearCollision;
+
 @end

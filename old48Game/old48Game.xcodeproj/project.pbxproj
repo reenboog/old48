@@ -32,6 +32,14 @@
 		B88C5D96167D85D5004D435C /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = B88C5D93167D85D5004D435C /* hero.png */; };
 		B88C5D99167D96D4004D435C /* mayaBox.png in Resources */ = {isa = PBXBuildFile; fileRef = B88C5D97167D96D4004D435C /* mayaBox.png */; };
 		B88C5D9A167D96D4004D435C /* mayaHole.png in Resources */ = {isa = PBXBuildFile; fileRef = B88C5D98167D96D4004D435C /* mayaHole.png */; };
+		B88C5D9C167D9C89004D435C /* ingameStar.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B88C5D9B167D9C89004D435C /* ingameStar.mp3 */; };
+		B88C5D9E167D9D70004D435C /* jump.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B88C5D9D167D9D70004D435C /* jump.mp3 */; };
+		B88C5DA0167D9F74004D435C /* mayaBack.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B88C5D9F167D9F74004D435C /* mayaBack.mp3 */; };
+		B88C5DA4167DA225004D435C /* hit0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B88C5DA1167DA224004D435C /* hit0.mp3 */; };
+		B88C5DA5167DA225004D435C /* hit1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B88C5DA2167DA224004D435C /* hit1.mp3 */; };
+		B88C5DA6167DA225004D435C /* tumble.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B88C5DA3167DA224004D435C /* tumble.mp3 */; };
+		B88C5DA8167DA28C004D435C /* run.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B88C5DA7167DA28C004D435C /* run.mp3 */; };
+		B88C5DAA167DA419004D435C /* slide.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B88C5DA9167DA419004D435C /* slide.mp3 */; };
 		B8E649A7167C21E7009F57F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E649A6167C21E7009F57F1 /* QuartzCore.framework */; };
 		B8E649A9167C21E7009F57F1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E649A8167C21E7009F57F1 /* OpenGLES.framework */; };
 		B8E649AB167C21E7009F57F1 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E649AA167C21E7009F57F1 /* OpenAL.framework */; };
@@ -204,6 +212,14 @@
 		B88C5D93167D85D5004D435C /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
 		B88C5D97167D96D4004D435C /* mayaBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mayaBox.png; sourceTree = "<group>"; };
 		B88C5D98167D96D4004D435C /* mayaHole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mayaHole.png; sourceTree = "<group>"; };
+		B88C5D9B167D9C89004D435C /* ingameStar.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ingameStar.mp3; sourceTree = "<group>"; };
+		B88C5D9D167D9D70004D435C /* jump.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = jump.mp3; sourceTree = "<group>"; };
+		B88C5D9F167D9F74004D435C /* mayaBack.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mayaBack.mp3; sourceTree = "<group>"; };
+		B88C5DA1167DA224004D435C /* hit0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit0.mp3; sourceTree = "<group>"; };
+		B88C5DA2167DA224004D435C /* hit1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hit1.mp3; sourceTree = "<group>"; };
+		B88C5DA3167DA224004D435C /* tumble.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = tumble.mp3; sourceTree = "<group>"; };
+		B88C5DA7167DA28C004D435C /* run.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = run.mp3; sourceTree = "<group>"; };
+		B88C5DA9167DA419004D435C /* slide.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = slide.mp3; sourceTree = "<group>"; };
 		B8E649A2167C21E7009F57F1 /* old48Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = old48Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E649A6167C21E7009F57F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B8E649A8167C21E7009F57F1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -586,6 +602,14 @@
 		B8E649B9167C21E7009F57F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B88C5DA9167DA419004D435C /* slide.mp3 */,
+				B88C5DA1167DA224004D435C /* hit0.mp3 */,
+				B88C5DA2167DA224004D435C /* hit1.mp3 */,
+				B88C5DA3167DA224004D435C /* tumble.mp3 */,
+				B88C5D9B167D9C89004D435C /* ingameStar.mp3 */,
+				B88C5D9D167D9D70004D435C /* jump.mp3 */,
+				B88C5DA7167DA28C004D435C /* run.mp3 */,
+				B88C5D9F167D9F74004D435C /* mayaBack.mp3 */,
 				B88C5D97167D96D4004D435C /* mayaBox.png */,
 				B88C5D98167D96D4004D435C /* mayaHole.png */,
 				B88C5D8B167D8567004D435C /* crow.ccbi */,
@@ -1083,6 +1107,14 @@
 				B88C5D96167D85D5004D435C /* hero.png in Resources */,
 				B88C5D99167D96D4004D435C /* mayaBox.png in Resources */,
 				B88C5D9A167D96D4004D435C /* mayaHole.png in Resources */,
+				B88C5D9C167D9C89004D435C /* ingameStar.mp3 in Resources */,
+				B88C5D9E167D9D70004D435C /* jump.mp3 in Resources */,
+				B88C5DA0167D9F74004D435C /* mayaBack.mp3 in Resources */,
+				B88C5DA4167DA225004D435C /* hit0.mp3 in Resources */,
+				B88C5DA5167DA225004D435C /* hit1.mp3 in Resources */,
+				B88C5DA6167DA225004D435C /* tumble.mp3 in Resources */,
+				B88C5DA8167DA28C004D435C /* run.mp3 in Resources */,
+				B88C5DAA167DA419004D435C /* slide.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
