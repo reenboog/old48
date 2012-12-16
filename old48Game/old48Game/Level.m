@@ -38,7 +38,13 @@
         objects = [[fileData objectForKey: @"objects"] retain];
         
         NSLog(@"loaded objects count: %i", [objects count]);
+        
+        self.groundImage = [fileData objectForKey: @"groundImage"];
+        self.skyImage = [fileData objectForKey: @"skyImage"];
+        self.backImage = [fileData objectForKey: @"backImage"];
     }
+    
+    return self;
 }
 
 @end

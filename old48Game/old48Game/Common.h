@@ -1,4 +1,6 @@
 
+#import "cocos2d.h"
+
 typedef enum
 {
     Obj_Coin = 1,
@@ -6,11 +8,19 @@ typedef enum
     Obj_ObstacleMayaBox = 31,
     Obj_ObstacleSpikes = 32,
     Obj_ObstacleSpears = 33,
-    Obj_ObstacleTop = 34,
+    Obj_ObstacleCrow = 34,
 } Objects;
 
 @protocol GameDelegate
 
 
+@end
+
+@interface Common: NSObject
+
++ (CCAnimation *) loadAnimationWithPlist: (NSString *) file andName: (NSString *) name;
 
 @end
+
+
+

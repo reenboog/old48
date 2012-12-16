@@ -3,6 +3,9 @@
 #import "Player.h"
 #import "Chaser.h"
 
+#import "CCBReader.h"
+#import "CCBAnimationManager.h"
+
 #import "UILayer.h"
 
 #import "Level.h"
@@ -53,6 +56,12 @@
 {
     if((self = [super init]))
     {
+        //preload some common animations and plists
+        
+        [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFramesWithFile: @"energy.plist"];
+
+        [Common loadAnimationWithPlist: @"animations" andName: @"energy"];
+        
         self.isTouchEnabled = YES;
         
         objects = [[NSMutableArray alloc] init];
@@ -89,6 +98,42 @@
 
     currentLevel = [[Level alloc] initWithIndex: levelIndex];
     
+    if(!backLayers)
+    {
+        backLayers = [CCNode node];
+        backLayers.position = ccp(0, 0);
+        [self addChild: backLayers z: zBackLayers];
+        
+        //ground
+        ground = [CCSprite spriteWithFile: currentLevel.groundImage];
+        ground.anchorPoint = ccp(0, 0);
+        ground.position = ccp(0, kBackgroundLayerVerticalDisplacement);
+        
+        ccTexParams tp = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_CLAMP_TO_EDGE};
+        
+        [ground.texture setTexParameters: &tp];
+        [backLayers addChild: ground z: zGround];
+        
+        back = [CCSprite spriteWithFile: currentLevel.backImage];
+        back.anchorPoint = ccp(0, 0);
+        back.position = ccp(0, 0);
+        
+        ccTexParams tb = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_CLAMP_TO_EDGE};
+        
+        [back.texture setTexParameters: &tb];
+        [backLayers addChild: back z: zBack];
+      
+        //sky
+        sky = [CCSprite spriteWithFile: currentLevel.skyImage];
+        sky.anchorPoint = ccp(0, 0);
+        sky.position = ccp(0, 0);
+        
+        ccTexParams ts = {GL_LINEAR, GL_LINEAR, GL_REPEAT, GL_CLAMP_TO_EDGE};
+        
+        [sky.texture setTexParameters: &ts];
+        [backLayers addChild: sky z: zSky];
+    }
+    
     [self reset];
 }
 
@@ -112,6 +157,11 @@
             [objects addObject: node];
         }
     }
+    
+//    [self stopAllActions];
+//    [self runAction:
+//                        [CCFollow actionWithTarget: player worldBoundary: CGRectMake(0, -kBackgroundLayerVerticalDisplacement, 1024, 1024)]
+//    ];
 }
 
 - (CCNode *) nodeForId: (NSInteger) Id andData: (NSDictionary *) data
@@ -124,6 +174,17 @@
     switch(Id)
     {
         case Obj_Coin:
+            node = [CCSprite spriteWithSpriteFrameName: @"energy0.png"];
+            node.position = pos;
+            node.tag = Id;
+            
+            [node runAction:
+                            [CCRepeatForever actionWithAction:
+                                                [CCAnimate actionWithAnimation:
+                                                            [[CCAnimationCache sharedAnimationCache] animationByName: @"energy"]
+                                                ]
+                            ]
+            ];
             
             break;
             
@@ -134,6 +195,17 @@
             node.tag = Id;
             
             CCLOG(@"pbject's pos: %f, %f", node.position.x, node.position.y);
+            break;
+            
+        case Obj_ObstacleCrow:
+            node = [CCBReader nodeGraphFromFile: @"crow.ccbi"];
+            node.position = pos;
+            node.tag = Id;
+            
+            node.contentSize = kRavenSize;
+            CCBAnimationManager *mngr = node.userObject;
+            
+            [mngr runAnimationsForSequenceNamed: @"fly"];
             break;
             
         default:
@@ -168,10 +240,76 @@
 
 - (void) update: (ccTime) delta
 {
+    //update camera
+    CGPoint cameraPos = self.position;
+    cameraPos.y = kPlayerPos.y - player.position.y;
+    
+    if(cameraPos.y > abs(kBackgroundLayerVerticalDisplacement))
+    {
+        cameraPos.y = abs(kBackgroundLayerVerticalDisplacement);
+    }
+    else if(cameraPos.y < kScreenHeight - kSkyHeight)
+    {
+        cameraPos.y = kScreenHeight - kSkyHeight;
+    }
+    
+    self.position = cameraPos;
+    
+    //transform textures
+    //ground
+    CGRect textureRect = ground.textureRect;
+    float textureOffsetX = textureRect.origin.x;
+    
+    float textureWidth = textureRect.size.width;
+    
+    textureOffsetX += delta * kPlayerSpeed;
+    
+    if(textureOffsetX >= textureWidth)
+    {
+        textureOffsetX -= textureWidth;
+    }
+    
+    textureRect = CGRectMake(textureOffsetX, 0, textureRect.size.width, textureRect.size.height);
+    [ground setTextureRect: textureRect];
+    
+    //back
+    textureRect = back.textureRect;
+    textureOffsetX = textureRect.origin.x;
+    
+    textureWidth = textureRect.size.width;
+    
+    textureOffsetX += delta * kPlayerSpeed * 0.3;
+    
+    if(textureOffsetX >= textureWidth)
+    {
+        textureOffsetX -= textureWidth;
+    }
+    
+    textureRect = CGRectMake(textureOffsetX, 0, textureRect.size.width, textureRect.size.height);
+    [back setTextureRect: textureRect];
+    
+    //sky
+    textureRect = sky.textureRect;
+    textureOffsetX = textureRect.origin.x;
+    
+    textureWidth = textureRect.size.width;
+    
+    textureOffsetX += delta * kPlayerSpeed * 0.1;
+    
+    if(textureOffsetX >= textureWidth)
+    {
+        textureOffsetX -= textureWidth;
+    }
+    
+    textureRect = CGRectMake(textureOffsetX, 0, textureRect.size.width, textureRect.size.height);
+    [sky setTextureRect: textureRect];
+
+    
+    //
     for(CCNode *node in objects)
     {
         //move objects
-        node.position = ccpAdd(node.position, ccp(kPlayerSpeed * delta, 0));
+        node.position = ccpAdd(node.position, ccp(-kPlayerSpeed * delta, 0));
     }
     
     for(CCNode *node in objects)
@@ -255,3 +393,4 @@
 }
 
 @end
+

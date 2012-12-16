@@ -12,6 +12,7 @@
 
 @synthesize gameDelegate;
 @synthesize state;
+@synthesize body;
 
 - (void) dealloc
 {
@@ -109,6 +110,7 @@
                                                                                             position: kPlayerDodgeDelta
                                                                         ]
                                         ],
+                                        [CCDelayTime actionWithDuration: 0.7],
                                         [CCMoveTo actionWithDuration: kPlayerDodgeTime / 2.0
                                                             position: positionBeforeAction
                                         ],
@@ -164,8 +166,8 @@
                                             [CCCallBlock actionWithBlock: ^(void)
                                                                          {
                                                                              //state = PS_Running;
-                                                                             [self run];
                                                                              self.rotation = 0;
+                                                                             [self run];
                                                                          }
                                             ],
                                             nil
@@ -185,6 +187,18 @@
     [animationManager runAnimationsForSequenceNamed: @"run"
                                       tweenDuration: 0.1
     ];
+    
+//    [self runAction:
+//                    [CCRepeatForever actionWithAction:
+//                                                    [CCSequence actions:
+//                                                                        [CCMoveTo actionWithDuration: 0.1
+//                                                                                            position: ccpAdd(kPlayerPos, ccp(0, 5))
+//                                                                        ],
+//                                                                        [CCMoveTo actionWithDuration: 0.1 position: kPlayerPos],
+//                                                                        nil
+//                                                    ]
+//                    ]
+//    ];
     
     state = PS_Running;
 }

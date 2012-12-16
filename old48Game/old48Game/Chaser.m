@@ -7,6 +7,8 @@
 //
 
 #import "Chaser.h"
+#import "CCBReader.h"
+#import "CCBAnimationManager.h"
 
 @interface Chaser ()
 
@@ -26,13 +28,17 @@
         
     }
     
-    body = [CCSprite spriteWithFile: @"res/chaser0.png"];
+    body = [CCBReader nodeGraphFromFile: @"chaser.ccbi"];
     
     self.contentSize = [body boundingBox].size;
     
     [self addChild: body];
     
     self.gameDelegate = delegate;
+    
+    CCBAnimationManager *mngr = body.userObject;
+    
+    [mngr runAnimationsForSequenceNamed: @"chase"];
     
     return self;
 }

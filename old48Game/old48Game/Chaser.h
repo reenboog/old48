@@ -4,7 +4,7 @@
 
 @interface Chaser: CCNode
 {
-    CCSprite *body;
+    CCNode *body;
     
     id<GameDelegate> gameDelegate;
 }

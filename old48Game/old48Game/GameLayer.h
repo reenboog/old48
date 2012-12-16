@@ -11,6 +11,12 @@
     Player *player;
     Chaser *chaser;
     
+    CCNode *backLayers;
+    
+    CCSprite *ground;
+    CCSprite *back;
+    CCSprite *sky;
+    
     UISwipeGestureRecognizer *swipeUpRecognizer;
     UISwipeGestureRecognizer *swipeDownRecognizer;
     

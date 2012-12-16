@@ -26,6 +26,7 @@ typedef enum
 
 @property (nonatomic, assign) id<GameDelegate> gameDelegate;
 @property (nonatomic, readonly) PlayerState state;
+@property (nonatomic, readonly) CCNode *body;
 
 
 - (id) initWithGameDelegate: (id<GameDelegate>) delegate;

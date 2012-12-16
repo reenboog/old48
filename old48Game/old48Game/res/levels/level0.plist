@@ -1098,10 +1098,10 @@
 		</dict>
 	</array>
 	<key>backImage</key>
-	<string>levelBtn.png</string>
+	<string>res/levels/mayaBack.png</string>
 	<key>groundImage</key>
-	<string>Icon.png</string>
+	<string>res/levels/mayaGround.png</string>
 	<key>skyImage</key>
-	<string>partBtn.png</string>
+	<string>res/levels/mayaSky.png</string>
 </dict>
 </plist>
