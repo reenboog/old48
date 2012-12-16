@@ -30,6 +30,8 @@
 		B88C5D94167D85D5004D435C /* hero.ccbi in Resources */ = {isa = PBXBuildFile; fileRef = B88C5D91167D85D5004D435C /* hero.ccbi */; };
 		B88C5D95167D85D5004D435C /* hero.plist in Resources */ = {isa = PBXBuildFile; fileRef = B88C5D92167D85D5004D435C /* hero.plist */; };
 		B88C5D96167D85D5004D435C /* hero.png in Resources */ = {isa = PBXBuildFile; fileRef = B88C5D93167D85D5004D435C /* hero.png */; };
+		B88C5D99167D96D4004D435C /* mayaBox.png in Resources */ = {isa = PBXBuildFile; fileRef = B88C5D97167D96D4004D435C /* mayaBox.png */; };
+		B88C5D9A167D96D4004D435C /* mayaHole.png in Resources */ = {isa = PBXBuildFile; fileRef = B88C5D98167D96D4004D435C /* mayaHole.png */; };
 		B8E649A7167C21E7009F57F1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E649A6167C21E7009F57F1 /* QuartzCore.framework */; };
 		B8E649A9167C21E7009F57F1 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E649A8167C21E7009F57F1 /* OpenGLES.framework */; };
 		B8E649AB167C21E7009F57F1 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8E649AA167C21E7009F57F1 /* OpenAL.framework */; };
@@ -200,6 +202,8 @@
 		B88C5D91167D85D5004D435C /* hero.ccbi */ = {isa = PBXFileReference; lastKnownFileType = file; path = hero.ccbi; sourceTree = "<group>"; };
 		B88C5D92167D85D5004D435C /* hero.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = hero.plist; sourceTree = "<group>"; };
 		B88C5D93167D85D5004D435C /* hero.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hero.png; sourceTree = "<group>"; };
+		B88C5D97167D96D4004D435C /* mayaBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mayaBox.png; sourceTree = "<group>"; };
+		B88C5D98167D96D4004D435C /* mayaHole.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mayaHole.png; sourceTree = "<group>"; };
 		B8E649A2167C21E7009F57F1 /* old48Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = old48Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8E649A6167C21E7009F57F1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B8E649A8167C21E7009F57F1 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -582,6 +586,8 @@
 		B8E649B9167C21E7009F57F1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B88C5D97167D96D4004D435C /* mayaBox.png */,
+				B88C5D98167D96D4004D435C /* mayaHole.png */,
 				B88C5D8B167D8567004D435C /* crow.ccbi */,
 				B88C5D8C167D8567004D435C /* crow.plist */,
 				B88C5D8D167D8567004D435C /* crow.png */,
@@ -1075,6 +1081,8 @@
 				B88C5D94167D85D5004D435C /* hero.ccbi in Resources */,
 				B88C5D95167D85D5004D435C /* hero.plist in Resources */,
 				B88C5D96167D85D5004D435C /* hero.png in Resources */,
+				B88C5D99167D96D4004D435C /* mayaBox.png in Resources */,
+				B88C5D9A167D96D4004D435C /* mayaHole.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

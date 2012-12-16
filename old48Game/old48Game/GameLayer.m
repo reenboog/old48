@@ -189,12 +189,18 @@
             break;
             
         case Obj_ObstacleMayaBox:
-            node = [CCSprite spriteWithFile: @"res/star.png"];
+            node = [CCSprite spriteWithFile: @"mayaBox.png"];
             
             node.position = pos;
             node.tag = Id;
             
             CCLOG(@"pbject's pos: %f, %f", node.position.x, node.position.y);
+            break;
+            
+        case Obj_ObstacleSpikes:
+            node = [CCSprite spriteWithFile: @"mayaHole.png"];
+            node.position = pos;
+            node.tag = Id;
             break;
             
         case Obj_ObstacleCrow:
